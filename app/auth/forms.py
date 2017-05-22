@@ -40,9 +40,9 @@ class RegisterForm(FlaskForm):
         check_validate = super(RegisterForm, self).validate()
         if not check_validate:
             return False
-        # Is the username already being used
+        # Is the phone is allowed.
         user = User.query.filter_by(phone=self.phone.data).first()
-        if user:
+        if not user:
             return False
 
         return True
