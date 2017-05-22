@@ -8,6 +8,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column('username', db.String(30))
     phone = db.Column('phone', db.String(11), unique=True)
+    sms_code = db.Column('sms_code', db.String(4))
     password = db.Column('password', db.String(120))
 
     def __str__(self):
