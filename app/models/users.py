@@ -6,13 +6,12 @@ from flask_login import UserMixin
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column('username', db.String(30))
     phone = db.Column('phone', db.String(11), unique=True)
     sms_code = db.Column('sms_code', db.String(4))
     password = db.Column('password', db.String(120))
 
     def __str__(self):
-        return 'name is {name}, phone is {phone}'.format(name=self.username, phone=self.phone)
+        return 'phone is {phone}'.format(phone=self.phone)
 
     def set_password(self, password):
         self.password = bcrypt.generate_password_hash(password)
