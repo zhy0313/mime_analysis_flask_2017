@@ -1,3 +1,4 @@
+from flask import current_app
 from flask import url_for
 from flask import redirect
 from flask import render_template
@@ -33,3 +34,8 @@ def register():
         return redirect(url_for('auth.login'))
 
     return render_template('register.html', form=form)
+
+
+@auth_blueprint.route('/sms_code', methods=['GET', 'POST'])
+def sms_code():
+    return current_app['']

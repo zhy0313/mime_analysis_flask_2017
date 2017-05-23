@@ -8,6 +8,8 @@ class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_RECORD_QUERIES = True
+    SMS_API_HOST = r'http://sms-api.luosimao.com/v1/send.json'
+    SMS_API_KEY = r'key-4efc7922b1bc90b949a2fa073519eb61'
 
 
 class DevelopmentConfig(Config):
