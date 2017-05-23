@@ -1,7 +1,4 @@
-from flask import url_for
-from flask import redirect
 from flask_login import login_required
-
 from . import essential_blueprint
 
 
