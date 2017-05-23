@@ -1,4 +1,5 @@
 import datetime
+import json
 from flask import url_for
 from flask import redirect
 from flask import render_template
@@ -48,14 +49,18 @@ def register():
 def sms_code(phone):
     user = User.query.filter_by(phone=phone).first()
     if not user:
-        return 'error'
+        ret = {'result': 'error'}
+        return json.dumps(ret)
 
     code = generate_code()
     ret = send_sms_code(phone, code)
     if not ret:
-        return 'error'
+        ret = {'result': 'error'}
+        return json.dumps(ret)
 
     user.sms_code = code
     user.updated_at = datetime.datetime.now()
     db.session.commit()
-    return 'success'
+    ret = {'result': 'success'}
+    return json.dumps(ret)
+
