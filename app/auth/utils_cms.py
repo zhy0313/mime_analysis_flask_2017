@@ -1,6 +1,7 @@
 import random
 import requests
-
+from ..config import SMS_API_HOST
+from ..config import SMS_API_KEY
 
 def generate_code():
     code_list = [str(random.randrange(0, 9)) for i in range(4)]
@@ -8,9 +9,9 @@ def generate_code():
     return ret_code
 
 
-def send_sms_code(host, key, phone, code):
-    cmd_str = host
-    auth_tuple = ("api", key)
+def send_sms_code(phone, code):
+    cmd_str = SMS_API_HOST
+    auth_tuple = ("api", SMS_API_KEY)
 
     data_dict = dict()
     data_dict['mobile'] = phone

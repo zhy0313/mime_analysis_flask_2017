@@ -1,4 +1,4 @@
-from flask import current_app
+import datetime
 from flask import url_for
 from flask import redirect
 from flask import render_template
@@ -7,6 +7,8 @@ from flask_login import login_user
 from . import auth_blueprint
 from .forms import RegisterForm
 from .forms import LoginForm
+from .utils_cms import generate_code
+from .utils_cms import send_sms_code
 from ..models import db
 from ..models import User
 
@@ -36,6 +38,18 @@ def register():
     return render_template('register.html', form=form)
 
 
-@auth_blueprint.route('/sms_code', methods=['GET', 'POST'])
-def sms_code():
-    return current_app['']
+@auth_blueprint.route('/sms_code/<string:phone>', methods=['GET', 'POST'])
+def sms_code(phone):
+    user = User.query.filter_by(phone=phone).first()
+    if not user:
+        return False
+
+    code = generate_code()
+    ret = send_sms_code(phone, code)
+    if not ret:
+        return False
+
+    user.sms_code = code
+    user.updated_at = datetime.datetime.now()
+    db.session.commit()
+    return ret
