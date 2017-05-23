@@ -9,6 +9,7 @@ class User(UserMixin, db.Model):
     phone = db.Column('phone', db.String(11), unique=True)
     sms_code = db.Column('sms_code', db.String(4))
     password = db.Column('password', db.String(120))
+    updated_at = db.Column('updated_at', db.DateTime())
 
     def __str__(self):
         return 'phone is {phone}'.format(phone=self.phone)

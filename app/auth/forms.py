@@ -18,7 +18,7 @@ class LoginForm(FlaskForm):
         check_validate = super(LoginForm, self).validate()
         if not check_validate:
             return False
-        # if the user exist
+        # if the user not exist
         user = User.query.filter_by(phone=self.phone.data).first()
         if not user:
             return False
@@ -40,10 +40,12 @@ class RegisterForm(FlaskForm):
         check_validate = super(RegisterForm, self).validate()
         if not check_validate:
             return False
-        # Is the phone is allowed.
+        # If the phone is allowed.
         user = User.query.filter_by(phone=self.phone.data).first()
         if not user:
             return False
+        # If the code match.
+
 
         return True
 
