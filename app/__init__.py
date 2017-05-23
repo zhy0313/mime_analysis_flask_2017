@@ -6,9 +6,9 @@ from .models import db
 from .vendors import bcrypt
 from .vendors import login_manager
 
-from .auth import auth_blueprint
-from .home import home_blueprint
-from .essential import essential_blueprint
+from .blueprint_auth import blueprint_auth
+from .blueprint_home import blueprint_home
+from .blueprint_essential import blueprint_essential
 
 
 def create_app(config_name):
@@ -21,8 +21,8 @@ def create_app(config_name):
     login_manager.init_app(app)
 
     # register blueprints here.
-    app.register_blueprint(auth_blueprint)
-    app.register_blueprint(home_blueprint)
-    app.register_blueprint(essential_blueprint)
+    app.register_blueprint(blueprint_auth)
+    app.register_blueprint(blueprint_home)
+    app.register_blueprint(blueprint_essential)
 
     return app
