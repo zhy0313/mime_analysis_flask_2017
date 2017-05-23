@@ -1,3 +1,4 @@
+import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms import PasswordField
@@ -45,7 +46,9 @@ class RegisterForm(FlaskForm):
         if not user:
             return False
         # If the code match.
-
+        time_diff = datetime.datetime.now() - user.updated_at
+        if (user.sms_code != self.code.data) or (time_diff.seconds > 300):
+            return False
 
         return True
 
