@@ -6,10 +6,10 @@ from flask_login import UserMixin
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    phone = db.Column('phone', db.String(11), unique=True)
-    sms_code = db.Column('sms_code', db.String(4))
-    password = db.Column('password', db.String(120))
-    updated_at = db.Column('updated_at', db.DateTime())
+    phone = db.Column('phone', db.String(11), unique=True, nullable=False)
+    sms_code = db.Column('sms_code', db.String(4), nullable=True)
+    password = db.Column('password', db.String(120), nullable=True)
+    updated_at = db.Column('updated_at', db.DateTime(), nullable=True)
 
     def __str__(self):
         return 'phone is {phone}'.format(phone=self.phone)
