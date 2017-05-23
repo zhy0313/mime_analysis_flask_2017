@@ -14,7 +14,7 @@ var auth = new Vue({
                 this.error_msg = 'please input right phone number'
             } else {
                 $(e.target).attr('disabled', 'disabled');
-                $.get('/auth/send-message', { phone: this.phone }, function(data) {
+                $.get('/blueprint_auth/send-message', { phone: this.phone }, function(data) {
                     if (data.error) {
                         login.error_msg = data.msg;
                     } else {

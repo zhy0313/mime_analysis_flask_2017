@@ -6,7 +6,7 @@ from flask import render_template
 from flask_login import login_user
 from flask_login import logout_user
 
-from . import auth_blueprint
+from . import blueprint_auth
 from .forms import RegisterForm
 from .forms import LoginForm
 from .utils_cms import generate_code
@@ -15,7 +15,7 @@ from ..models import db
 from ..models import User
 
 
-@auth_blueprint.route('/login', methods=['GET', 'POST'])
+@blueprint_auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -26,12 +26,12 @@ def login():
     return render_template('login.html', form=form)
 
 
-@auth_blueprint.route('/logout', methods=['GET', 'POST'])
+@blueprint_auth.route('/logout', methods=['GET', 'POST'])
 def logout():
     logout_user()
 
 
-@auth_blueprint.route('/register', methods=['GET', 'POST'])
+@blueprint_auth.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -40,12 +40,12 @@ def register():
         new_user.set_password(form.password.data)
         db.session.add(new_user)
         db.session.commit()
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('blueprint_auth.login'))
 
     return render_template('register.html', form=form)
 
 
-@auth_blueprint.route('/sms_code/<string:phone>', methods=['GET', 'POST'])
+@blueprint_auth.route('/sms_code/<string:phone>', methods=['GET', 'POST'])
 def sms_code(phone):
     user = User.query.filter_by(phone=phone).first()
     if not user:
