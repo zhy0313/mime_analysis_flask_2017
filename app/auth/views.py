@@ -3,6 +3,7 @@ from flask import url_for
 from flask import redirect
 from flask import render_template
 from flask_login import login_user
+from flask_login import logout_user
 
 from . import auth_blueprint
 from .forms import RegisterForm
@@ -22,6 +23,11 @@ def login():
         return redirect(url_for('main.index'))
 
     return render_template('login.html', form=form)
+
+
+@auth_blueprint.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
 
 
 @auth_blueprint.route('/register', methods=['GET', 'POST'])
