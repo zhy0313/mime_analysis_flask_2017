@@ -42,14 +42,14 @@ def register():
 def sms_code(phone):
     user = User.query.filter_by(phone=phone).first()
     if not user:
-        return False
+        return 'error'
 
     code = generate_code()
     ret = send_sms_code(phone, code)
     if not ret:
-        return False
+        return 'error'
 
     user.sms_code = code
     user.updated_at = datetime.datetime.now()
     db.session.commit()
-    return ret
+    return 'success'
