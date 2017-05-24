@@ -11,16 +11,16 @@ from ..models import User
 
 
 class LoginForm(FlaskForm):
-    phone = StringField('Phone', [DataRequired(), Length(max=11)])
+    phone = StringField('Phone', validators=[DataRequired(), Length(max=11)])
     password = PasswordField('Password', [DataRequired()])
-    submit = SubmitField('Login')
+    # submit = SubmitField('Login')
 
     def validate(self):
-        # check_validate = super(LoginForm, self).validate()
-        # print('44')
-        # if not check_validate:
-        #     print('444')
-        #     return False
+        check_validate = super(LoginForm, self).validate()
+        print('44')
+        if not check_validate:
+            print('444')
+            return False
         # if the user not exist
         user = User.query.filter_by(phone=self.phone.data).first()
         if not user:
@@ -37,7 +37,7 @@ class RegisterForm(FlaskForm):
     code = StringField('Code', [DataRequired()])
     password = PasswordField('Password', [DataRequired()])
     confirm = PasswordField('Confirm Password', [DataRequired(), EqualTo('password')])
-    submit = SubmitField('Register')
+    # submit = SubmitField('Register')
 
     def validate(self):
         # check_validate = super(RegisterForm, self).validate()
