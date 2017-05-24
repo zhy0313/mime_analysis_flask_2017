@@ -8,7 +8,6 @@ from .vendors import login_manager
 
 from .blueprint_auth import blueprint_auth
 from .blueprint_home import blueprint_home
-from .blueprint_essential import blueprint_essential
 
 
 def create_app(config_name):
@@ -23,6 +22,5 @@ def create_app(config_name):
     # register blueprints here.
     app.register_blueprint(blueprint_auth)
     app.register_blueprint(blueprint_home)
-    app.register_blueprint(blueprint_essential)
 
     return app

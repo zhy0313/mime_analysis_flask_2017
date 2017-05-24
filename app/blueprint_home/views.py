@@ -9,3 +9,13 @@ from . import blueprint_home
 def index():
     return render_template('home.html')
 
+@blueprint_home.route('/daily_count/')
+@login_required
+def daily_count():
+    pass
+
+
+@blueprint_home.route('/region_count/')
+@login_required
+def region_count():
+    pass
