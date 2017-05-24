@@ -21,7 +21,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(phone=form.phone.data).first()
         login_user(user)
-        return redirect(url_for('main.index'))
+        return redirect(url_for('blueprint_home.index'))
 
     return render_template('auth/login.html', form=form)
 
@@ -35,10 +35,8 @@ def logout():
 def register():
     form = RegisterForm()
     if form.validate_on_submit():
-        new_user = User()
-        new_user.phone = form.phone.data
+        new_user = User.query.filter_by(phone=form.phone.data).first()
         new_user.set_password(form.password.data)
-        db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('blueprint_auth.login'))
 

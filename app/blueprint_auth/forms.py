@@ -16,9 +16,11 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
     def validate(self):
-        check_validate = super(LoginForm, self).validate()
-        if not check_validate:
-            return False
+        # check_validate = super(LoginForm, self).validate()
+        # print('44')
+        # if not check_validate:
+        #     print('444')
+        #     return False
         # if the user not exist
         user = User.query.filter_by(phone=self.phone.data).first()
         if not user:
@@ -32,15 +34,15 @@ class LoginForm(FlaskForm):
 
 class RegisterForm(FlaskForm):
     phone = StringField('Phone', [DataRequired(), Length(max=11)])
-    code = StringField('Code', [DataRequired(), Length(max=4)])
-    password = PasswordField('Password', [DataRequired(), Length(min=6)])
+    code = StringField('Code', [DataRequired()])
+    password = PasswordField('Password', [DataRequired()])
     confirm = PasswordField('Confirm Password', [DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
     def validate(self):
-        check_validate = super(RegisterForm, self).validate()
-        if not check_validate:
-            return False
+        # check_validate = super(RegisterForm, self).validate()
+        # if not check_validate:
+        #     return False
         # If the phone is allowed.
         user = User.query.filter_by(phone=self.phone.data).first()
         if not user:
@@ -49,6 +51,5 @@ class RegisterForm(FlaskForm):
         time_diff = datetime.datetime.now() - user.updated_at
         if (user.sms_code != self.code.data) or (time_diff.seconds > 300):
             return False
-
         return True
 
