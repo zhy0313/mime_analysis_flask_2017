@@ -1,5 +1,6 @@
 body {
-  font-family: 'Microsoft YaHei', serif !important; }
+  font-family: 'Microsoft YaHei', serif !important;
+  background-color: #ecf0f5; }
 
 [v-cloak] {
   display: none; }

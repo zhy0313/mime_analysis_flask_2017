@@ -1,6 +1,11 @@
 .card {
-  .card-block>i {
+  .card-block > i {
     position: absolute;
     right: 0;
+    color: rgba(0, 0, 0, 0.15);
   }
+  .card-title {
+    text-shadow: gray 1px 1px 1px;
+  }
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
 }

@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+{#    <meta name="csrf-token" content="{{ csrf_token() }}">#}
     <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
     <title>Mime2.0 数据中心</title>
 
@@ -28,12 +29,12 @@
     <script src="https://cdn.bootcss.com/flat-ui/2.3.0/js/vendor/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/tether/1.3.6/js/tether.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/static/js/vendor/jquery.pin.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery-smoove/0.2.9/jquery.smoove.min.js"></script>
     <script src="https://cdn.bootcss.com/vue/2.3.3/vue.min.js"></script>
     <script src="https://cdn.bootcss.com/echarts/3.5.4/echarts.min.js"></script>
     <script src="https://cdn.bootcss.com/echarts/3.5.4/extension/bmap.min.js"></script>
     <script src="https://cdn.bootcss.com/echarts/3.5.4/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="/static/js/vendor/jquery.pin.min.js"></script>
     <script type="text/javascript" src="/static/js/vendor/echarts-wordcloud.js"></script>
     <script type="text/javascript" src="/static/js/base.js"></script>
     {% block js %}{% endblock %}
