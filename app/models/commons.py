@@ -5,7 +5,6 @@ class Disease(db.Model):
     __tablename__ = 'disease'
     id = db.Column(db.Integer(), primary_key=True)
     name_ch = db.Column('name_ch', db.String(30), nullable=False)
-    name_en = db.Column('name_ch', db.String(30), nullable=False)
 
 
 class Region(db.Model):
