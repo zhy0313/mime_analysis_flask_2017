@@ -23,4 +23,11 @@ class Doctor(db.Model):
 class AuthenticatedDoctor(db.Model):
     __tablename__ = 'authenticated_doctor'
     id = db.Column(db.Integer(), primary_key=True)
+    real_name = db.Column('real_name', db.String(30), nullable=False)
+    register_year = db.Column('register_year', db.String(30), nullable=False)
+    id_number = db.Column('id_number', db.String(30), nullable=False)
+    pqc_number = db.Column('pqc_number', db.String(30), nullable=False)
+    ppqc_number = db.Column('pqc_number', db.String(30), nullable=False)
+
+
 
