@@ -24,14 +24,17 @@
 
                 </ul>
                 <ul class="navbar-nav">
+                    {% if user %}
                     <li class="dropdown nav-item">
-                        <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
+                        <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.name }}<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a class="nav-link" href="/logout">logout</a></li>
                         </ul>
                     </li>
+                    {% else %}
                     <li class="nav-item"><a class="nav-link" href="/register">注册</a></li>
                     <li class="nav-item"><a class="nav-link" href="/login">登录</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

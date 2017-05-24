@@ -1,78 +1,84 @@
 {% extends 'layouts/base.html' %} {% block css %}
     <link rel="stylesheet" href="/static/css/home.css"> {% endblock %} {% block content %}
-{#    <div class="container">#}
-{#        <div class="col text-center">#}
-{#            <h1>Mime2.0 数据统计</h1>#}
-{#        </div>#}
-{#    </div>#}
 
-    <div class="common-count">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-sm-12 smoove">
-                    <p class="count-heading">本月统计数据</p>
-                </div>
-                <div class="col-sm-12 smoove">
-                    <hr>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 smoove">
-                    <span class="count-span">新增文章数</span>
-                    <p class="count-p">8056
-                        <small>篇</small>
-                    </p>
-                    <span class="text-danger">&#8595; 120</span>&emsp;<span class="text-danger">&#8595; 1.47%</span>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 smoove">
-                    <span class="count-span">阅读量</span>
-                    <p class="count-p">1563213
-                        <small>人次</small>
-                    </p>
-                    <span class="text-success">&#8593; 30080</span>&emsp;<span class="text-success">&#8593; 1.96%</span>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 smoove">
-                    <span class="count-span">访问量</span>
-                    <p class="count-p">104651
-                        <small>人次</small>
-                    </p>
-                    <span class="text-success">&#8593; 2080</span>&emsp;<span class="text-success">&#8593; 20.3%</span>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 smoove">
-                    <span class="count-span">新媒体活跃度</span>
-                    <p class="count-p">
-                        88
-                        <small>%</small>
-                        <small class="text-success">&#8593;5%</small>
-                    </p>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 smoove">
-                    <span class="count-span">Web活跃度</span>
-                    <p class="count-p">
-                        60
-                        <small>%</small>
-                        <small class="text-danger">&#8595;3%</small>
-                    </p>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 smoove">
-                    <span class="count-span">期刊活跃度</span>
-                    <p class="count-p">
-                        70
-                        <small>%</small>
-                        <small class="text-success">&#8593;1%</small>
-                    </p>
-                </div>
-                <div class="col-sm-12 smoove">
-                    <span class="count-span">本月关键词</span>
-                    <p class="count-p">康复论坛、健康饮食、糖尿病、...</p>
-                </div>
-                <div class="col-sm-12 smoove">
-                    <hr>
-                </div>
-                <div class="col-sm-12 smoove">
-                    <br><br>
-                    <p class="count-heading">To Be Continued</p>
+    <div class="container text-center">
+        {#    <div class="container">#}
+        {#        <div class="col text-center">#}
+        {#            <h1>Mime2.0 数据统计</h1>#}
+        {#        </div>#}
+        {#    </div>#}
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-primary">
+
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-12 smoove">
+                <p class="count-heading">本月统计数据</p>
+            </div>
+            <div class="col-sm-12 smoove">
+                <hr>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 smoove">
+                <span class="count-span">新增文章数</span>
+                <p class="count-p">8056
+                    <small>篇</small>
+                </p>
+                <span class="text-danger">&#8595; 120</span>&emsp;<span class="text-danger">&#8595; 1.47%</span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 smoove">
+                <span class="count-span">阅读量</span>
+                <p class="count-p">1563213
+                    <small>人次</small>
+                </p>
+                <span class="text-success">&#8593; 30080</span>&emsp;<span class="text-success">&#8593; 1.96%</span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 smoove">
+                <span class="count-span">访问量</span>
+                <p class="count-p">104651
+                    <small>人次</small>
+                </p>
+                <span class="text-success">&#8593; 2080</span>&emsp;<span class="text-success">&#8593; 20.3%</span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 smoove">
+                <span class="count-span">新媒体活跃度</span>
+                <p class="count-p">
+                    88
+                    <small>%</small>
+                    <small class="text-success">&#8593;5%</small>
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 smoove">
+                <span class="count-span">Web活跃度</span>
+                <p class="count-p">
+                    60
+                    <small>%</small>
+                    <small class="text-danger">&#8595;3%</small>
+                </p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 smoove">
+                <span class="count-span">期刊活跃度</span>
+                <p class="count-p">
+                    70
+                    <small>%</small>
+                    <small class="text-success">&#8593;1%</small>
+                </p>
+            </div>
+            <div class="col-sm-12 smoove">
+                <span class="count-span">本月关键词</span>
+                <p class="count-p">康复论坛、健康饮食、糖尿病、...</p>
+            </div>
+            <div class="col-sm-12 smoove">
+                <hr>
+            </div>
+            <div class="col-sm-12 smoove">
+                <br><br>
+                <p class="count-heading">To Be Continued</p>
+            </div>
+        </div>
+    </div>
     </div>
 {% endblock %} {% block js %}
 
