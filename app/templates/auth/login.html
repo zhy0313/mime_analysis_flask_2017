@@ -27,9 +27,11 @@
                             </div>
                             <hr>
                             <div class="col-md-7 offset-md-3">
-                                <button type="submit" class="btn btn-outline-danger btn-block" id="submit_btn">
-                                    <i class="fa fa-btn fa-sign-up"></i> Login
-                                </button>
+                                {{ form.submit.label(class="sr-only") }}
+                                {{ form.submit(class="btn btn-outline-danger btn-block") }}
+{#                                <button type="submit" class="btn btn-outline-danger btn-block" id="submit_btn">#}
+{#                                    <i class="fa fa-btn fa-sign-up"></i> Login#}
+{#                                </button>#}
                             </div>
                         </form>
                     </div>
