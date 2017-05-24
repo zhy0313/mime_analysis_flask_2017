@@ -13,6 +13,7 @@
                     <div class="card-header text-danger"><b>Login</b></div>
                     <div class="card-block">
                         <form class="form-horizontal" method="POST" action="/login">
+                            {{ form.csrf_token }}
                             <div class="form-group row ">
                                 {{ form.phone.label(class="col-md-4 col-form-label text-md-right") }}
                                 <div class="col-md-7">
