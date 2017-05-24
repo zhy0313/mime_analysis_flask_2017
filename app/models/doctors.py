@@ -20,3 +20,7 @@ class Doctor(db.Model):
     register_day = db.Column('register_day', db.String(30), nullable=True)
 
 
+class AuthenticatedDoctor(db.Model):
+    __tablename__ = 'authenticated_doctor'
+    id = db.Column(db.Integer(), primary_key=True)
+
