@@ -23,7 +23,7 @@ def login():
         login_user(user)
         return redirect(url_for('main.index'))
 
-    return render_template('login.html', form=form)
+    return render_template('auth/login.html', form=form)
 
 
 @blueprint_auth.route('/logout', methods=['GET', 'POST'])
@@ -42,7 +42,7 @@ def register():
         db.session.commit()
         return redirect(url_for('blueprint_auth.login'))
 
-    return render_template('register.html', form=form)
+    return render_template('auth/register.html', form=form)
 
 
 @blueprint_auth.route('/sms_code/<string:phone>', methods=['GET', 'POST'])
