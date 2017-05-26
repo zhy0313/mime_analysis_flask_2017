@@ -8,6 +8,7 @@ from sqlalchemy import func
 from ..models import db
 
 
+
 @blueprint_home.route('/')
 @blueprint_home.route('/index/')
 #@login_required
