@@ -12,6 +12,7 @@ class DailyCount(db.Model):
     visit_count = db.Column('visit_count', db.Integer(), nullable=False)
     register_count = db.Column('register_count', db.Integer(), nullable=False)
     authorize_count = db.Column('authorize_count', db.Integer(), nullable=False)
+    authorize_count = db.Column('trade_count', db.Integer(), nullable=False)
 
 
 class RegionCount(db.Model):
@@ -26,4 +27,5 @@ class RegionCount(db.Model):
     visit_count = db.Column('visit_count', db.Integer(), nullable=False)
     register_count = db.Column('register_count', db.Integer(), nullable=False)
     authorize_count = db.Column('authorize_count', db.Integer(), nullable=False)
+    authorize_count = db.Column('trade_count', db.Integer(), nullable=False)
 
