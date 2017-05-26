@@ -1,5 +1,6 @@
 var chart_name = 'all_map_user';
-var chart_all_map_user = new Vue({
+var chart_all_map_user;
+chart_all_map_user = new Vue({
     el: chart_name,
     data: {
         title: chart_name,
@@ -221,9 +222,7 @@ var chart_all_map_user = new Vue({
 
             var option = {
                 title: {
-                    text: '全国主要城市空气质量',
-                    subtext: 'data from PM25.in',
-                    sublink: 'http://www.pm25.in',
+                    text: '全国用户分布图',
                     left: 'center',
                     textStyle: {
                         color: '#fff'
