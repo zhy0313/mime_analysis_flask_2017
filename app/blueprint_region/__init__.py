@@ -1,5 +1,8 @@
 from flask import Blueprint
 
-blueprint_region = Blueprint('blueprint_region', __name__, template_folder='../templates')
+blueprint_region = Blueprint('blueprint_region',
+                             __name__,
+                             url_prefix='/region',
+                             template_folder='../templates/region')
 
 from . import views
