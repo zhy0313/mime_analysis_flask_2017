@@ -6,38 +6,29 @@
     <div class="container">
         <div class="row mt-4">
             <div class="col-sm-6 col-lg-3">
-                <div class="card card-inverse card-info mb-3">
+                <div class="card mb-3">
                     <div class="card-block p-3">
                         <i class="fa fa-4x fa-mouse-pointer pr-3"></i>
-                        <div class="card-title h3">{{statistic_info.visit_count}}</div>
+                        <div class="card-title h3">123123</div>
                         <div class="card-text">访问总量</div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <div class="card card-inverse card-success mb-3">
+                <div class="card mb-3">
                     <div class="card-block p-3">
                         <i class="fa fa-4x fa-users pr-3"></i>
-                        <div class="card-title h3">{{statistic_info.register_count}}</div>
+                        <div class="card-title h3">12313</div>
                         <div class="card-text">注册总量</div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
-                <div class="card card-inverse card-warning mb-3">
+                <div class="card mb-3">
                     <div class="card-block p-3">
                         <i class="fa fa-4x fa-user-md pr-3"></i>
-                        <div class="card-title h3">{{statistic_info.authorize_count}}</div>
+                        <div class="card-title h3">123123</div>
                         <div class="card-text">认证总量</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card card-inverse card-danger mb-3">
-                    <div class="card-block p-3">
-                        <i class="fa fa-4x fa-cny pr-3"></i>
-                        <div class="card-title h3">{{statistic_info.trade_count}}</div>
-                        <div class="card-text">交易总量</div>
                     </div>
                 </div>
             </div>
@@ -48,7 +39,7 @@
                     {#                    <div class="card-header">#}
                     {#                        <b>全国用户分布</b>#}
                     {#                    </div>#}
-                    <div class="card-block card-info card-inverse">
+                    <div class="card-block">
                         <div id="all_map_user" style="height: 500px"></div>
                     </div>
                     <div class="card-block">
@@ -63,8 +54,8 @@
         </div>
         <div class="row mt-3">
             <div class="col-12">
-                <div class="card card-inverse mb-3">
-                    <div class="card-header bg-success" style="background-color: #fff;">
+                <div class="card mb-3">
+                    <div class="card-header" style="background-color: #fff;">
                         <b>全年用户统计</b>
                     </div>
                     <div class="card-block">
@@ -76,6 +67,5 @@
     </div>
 {% endblock %}
 {% block js %}
-    <script src="/static/js/vendor/map/china.js"></script>
     <script src="/static/js/home.js"></script>
 {% endblock %}
