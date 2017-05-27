@@ -103,3 +103,8 @@ ENV/
 # idea
 .idea/
 /migrations/
+/app/static/css/*.scss
+/app/static/css/*.css.map
+/app/static/css/bootstrap4.css
+/webpack.config.js
+/app/static/webpack/

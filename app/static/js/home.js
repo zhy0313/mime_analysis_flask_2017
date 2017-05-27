@@ -1,3 +1,75 @@
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
 var chart_name = 'all_map_user';
 var chart_all_map_user;
 chart_all_map_user = new Vue({
@@ -464,3 +536,229 @@ chart_all_map_user = new Vue({
         this.refresh();
     }
 });
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+var chart_name = 'province_line_user';
+var chart_province_line_user;
+chart_province_line_user = new Vue({
+    el: chart_name,
+    data: {
+        title: chart_name,
+        get_url: '',
+        get_data: ''
+    },
+    methods: {
+        refresh: function (e) {
+            var vm = this;
+            $.get(vm.get_url, {}, function (data) {
+                vm.get_data = data;
+                vm.chart();
+            });
+        },
+        chart: function () {
+            var option = {
+                title: {
+                    text: '注册量',
+                    textStyle: {
+                      fontWeight: '100'
+                    },
+                    left: 'center',
+                    bottom: '5px',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#6a7985'
+                        }
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    top: '3%',
+                    bottom: '30px',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        boundaryGap: false,
+                        show: false,
+                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        show: false,
+                        splitLine: {
+                            show: false
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '邮件营销',
+                        type: 'line',
+                        stack: '总量',
+                        smooth: true,
+                        itemStyle: {
+                            normal: {
+                                color: "#5BC0DE"
+                            }
+                        },
+                        areaStyle: {
+                            normal: {
+                                color: "#5BC0DE"
+                            }
+                        },
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                    }
+                ]
+            };
+
+            var chart1 = echarts.init(document.getElementById(this.title+'1'));
+            var chart2 = echarts.init(document.getElementById(this.title+'2'));
+            var chart3 = echarts.init(document.getElementById(this.title+'3'));
+            chart1.setOption(option);
+            chart2.setOption(option);
+            chart3.setOption(option);
+        }
+    },
+    mounted: function () {
+        this.refresh();
+    }
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var chart_name = 'year_line_user';
+var chart_year_line_user;
+chart_year_line_user = new Vue({
+    el: chart_name,
+    data: {
+        title: chart_name,
+        get_url: '',
+        get_data: ''
+    },
+    methods: {
+        refresh: function (e) {
+            var vm = this;
+            $.get(vm.get_url, {}, function (data) {
+                vm.get_data = data;
+                vm.chart();
+            });
+        },
+        chart: function () {
+            var option = {
+    title: {
+        text: '堆叠区域图'
+    },
+    tooltip : {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+    legend: {
+        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'邮件营销',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data:[120, 132, 101, 134, 90, 230, 210]
+        },
+        {
+            name:'联盟广告',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data:[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'视频广告',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data:[150, 232, 201, 154, 190, 330, 410]
+        },
+        {
+            name:'直接访问',
+            type:'line',
+            stack: '总量',
+            areaStyle: {normal: {}},
+            data:[320, 332, 301, 334, 390, 330, 320]
+        },
+        {
+            name:'搜索引擎',
+            type:'line',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'top'
+                }
+            },
+            areaStyle: {normal: {}},
+            data:[820, 932, 901, 934, 1290, 1330, 1320]
+        }
+    ]
+};
+
+
+            var chart = echarts.init(document.getElementById(this.title));
+            chart.setOption(option);
+        }
+    },
+    mounted: function () {
+        this.refresh();
+    }
+});
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(0);
+__webpack_require__(1);
+module.exports = __webpack_require__(2);
+
+
+/***/ })
+/******/ ]);
