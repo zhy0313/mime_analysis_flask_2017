@@ -3,6 +3,7 @@ import requests
 from ..config import SMS_API_HOST
 from ..config import SMS_API_KEY
 
+
 def generate_code():
     code_list = [str(random.randrange(0, 9)) for i in range(4)]
     ret_code = ''.join(code_list)

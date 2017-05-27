@@ -11,6 +11,6 @@ from .commons import AgeGroup
 from .commons import HospitalLevel
 from .commons import HospitalOffice
 from .commons import DoctorTitle
-from .home_statistics import DailyCount
-from .home_statistics import RegionCount
+from .time_statistics import TimeCount
+from .region_statistics import RegionCount
 

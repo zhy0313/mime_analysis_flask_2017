@@ -21,7 +21,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(phone=form.phone.data).first()
         login_user(user)
-        return redirect(url_for('blueprint_home.index'))
+        return redirect(url_for('blueprint_time.index'))
 
     return render_template('auth/login.html', form=form)
 
