@@ -22,48 +22,56 @@ def index():
 @blueprint_time.route('/regions/', methods=['GET', 'POST'])
 @login_required
 def regions():
-    pass
+    regions_ret = {}
+    return json.dumps(regions_ret)
 
 
 @blueprint_time.route('/titles/', methods=['GET', 'POST'])
 @login_required
 def titles():
-    pass
+    titles_ret = {}
+    return json.dumps(titles_ret)
 
 
 @blueprint_time.route('/offices/', methods=['GET', 'POST'])
 @login_required
 def offices():
-    pass
+    offices_ret = {}
+    return json.dumps(offices_ret)
 
 
 @blueprint_time.route('/hospital_levels/', methods=['GET', 'POST'])
 @login_required
 def hospital_levels():
-    pass
+    hospital_levels_ret = {}
+    return json.dumps(hospital_levels_ret)
 
 
 @blueprint_time.route('/age_groups/', methods=['GET', 'POST'])
 @login_required
 def age_groups():
-    pass
+    age_groups_ret = {}
+    return json.dumps(age_groups_ret)
 
 
 @blueprint_time.route('/months/<int:year>', methods=['GET', 'POST'])
 @login_required
 def months(year):
-    pass
+    months_ret = {}
+    return json.dumps(months_ret)
 
 
 @blueprint_time.route('/days/<int:year>/<int:month>', methods=['GET', 'POST'])
 @login_required
 def days(year, month):
-    pass
+    days_ret = {}
+    return json.dumps(days_ret)
 
 
 @blueprint_time.route('/rates/<int:year>/<int:month>', methods=['GET', 'POST'])
 @login_required
 def rates(year, month):
-    pass
+    rates_ret = {}
+    return json.dumps(rates_ret)
 
 
