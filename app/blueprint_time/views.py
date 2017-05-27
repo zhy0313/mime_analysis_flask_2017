@@ -22,11 +22,7 @@ def index():
 @blueprint_time.route('/regions/', methods=['GET', 'POST'])
 @login_required
 def regions():
-    register_count = db.session.query(func.sum(TimeCount.register_count)).first()[0]
-    authorize_count = db.session.query(func.sum(TimeCount.authorize_count)).first()[0]
-    trade_count = db.session.query(func.sum(TimeCount.trade_count)).first()[0]
-    ret = {'register_count': register_count, 'authorize_count': authorize_count, 'trade_count': trade_count}
-    return json.dumps(ret)
+    pass
 
 
 @blueprint_time.route('/titles/', methods=['GET', 'POST'])
