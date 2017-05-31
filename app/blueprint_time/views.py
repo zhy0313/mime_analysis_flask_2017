@@ -82,9 +82,9 @@ def offices():
 #@login_required
 def hospital_levels():
     hospital_levels_ret = []
-    ret = db.session.query(Hospital.hospital_level_id, HospitalLevel.level,
-                           func.count(Hospital.id)).group_by(Hospital.hospital_level_id).join(HospitalLevel,
-                                                                                              Hospital.hospital_level_id == HospitalLevel.id).all()
+    ret = db.session.query(Doctor.hospital_level_id, HospitalLevel.level,
+                           func.count(Doctor.id)).group_by(Doctor.hospital_level_id).join(HospitalLevel,
+                                     Doctor.hospital_level_id == HospitalLevel.id).all()
     for r in ret:
         json_ret = {'hospital_level': r[1], 'count': str(r[2])}
         hospital_levels_ret.append(json_ret)
