@@ -5,7 +5,7 @@
 {% block content %}
     <div class="container">
         <div class="row mt-4">
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-md-4">
                 <div class="card mb-3">
                     <div class="card-block p-3">
                         <i class="fa fa-4x fa-mouse-pointer pr-3"></i>
@@ -13,8 +13,7 @@
                         <div class="card-text">访问总量</div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
+
                 <div class="card mb-3">
                     <div class="card-block p-3">
                         <i class="fa fa-4x fa-users pr-3"></i>
@@ -22,8 +21,7 @@
                         <div class="card-text">注册总量</div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
+
                 <div class="card mb-3">
                     <div class="card-block p-3">
                         <i class="fa fa-4x fa-user-md pr-3"></i>
@@ -32,34 +30,79 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-12">
-                <div class="card mb-3">
+
+            <div class="col-md-8">
+                <div class="card mb-3" style="background:#404A59;">
                     {#                    <div class="card-header">#}
                     {#                        <b>全国用户分布</b>#}
                     {#                    </div>#}
                     <div class="card-block">
-                        <div id="all_map_user" style="height: 500px"></div>
+                        <div id="all_map_doctor_gis" style="height: 500px"></div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
                     <div class="card-block">
-                        <div class="row">
-                            <div class="col-md-4" id="province_line_user1" style="height: 200px"></div>
-                            <div class="col-md-4" id="province_line_user2" style="height: 200px"></div>
-                            <div class="col-md-4" id="province_line_user3" style="height: 200px"></div>
+                        <div class="row" style="height: 300px">
+                            <div class="col-md-4" id="all_pie_doctor_title"></div>
+                            <div class="col-md-4" id="all_pie_doctor_office"></div>
+                            <div class="col-md-4" id="all_pie_doctor_grade"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row">
             <div class="col-12">
                 <div class="card mb-3">
-                    <div class="card-header" style="background-color: #fff;">
-                        <b>全年用户统计</b>
+{#                    <div class="card-header">#}
+{#                        <b>全年用户统计</b>#}
+{#                    </div>#}
+                    <div class="card-block">
+                        <div id="all_bar_doctor_age" style="height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <input type="date" title="">
                     </div>
                     <div class="card-block">
-                        <div id="year_line_user" style="height: 500px"></div>
+                        <div id="year_bar_doctor_all_count" style="height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
+{#                    <div class="card-header">#}
+{#                        <input type="date" title="">#}
+{#                    </div>#}
+                    <div class="card-block">
+                        <div id="month_line_doctor_all_count" style="height: 500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-3">
+{#                    <div class="card-header">#}
+{#                        <b>全年用户统计</b>#}
+{#                    </div>#}
+                    <div class="card-block">
+                        <div class="row" style="height: 300px">
+                            <div class="col-md-4" id="month_gauge_doctor_1"></div>
+                            <div class="col-md-4" id="month_gauge_doctor_2"></div>
+                            <div class="col-md-4" id="month_gauge_doctor_3"></div>
+                        </div>
                     </div>
                 </div>
             </div>
