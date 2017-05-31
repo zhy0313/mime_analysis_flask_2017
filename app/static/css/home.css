@@ -1,11 +1,1 @@
-.card {
-  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 1px 0;
-  border: none; }
-  .card .card-block > i {
-    position: absolute;
-    right: 0;
-    color: rgba(0, 0, 0, 0.15); }
-  .card .card-title {
-    text-shadow: gray 1px 1px 1px; }
-
-/*# sourceMappingURL=home.css.map */
+.card{box-shadow:rgba(0,0,0,0.2) 0 1px 1px 0;border:none}.card .card-block>i{position:absolute;right:0;color:rgba(0,0,0,0.15)}.card .card-title{text-shadow:gray 1px 1px 1px}

@@ -46,10 +46,10 @@
             <div class="col-12">
                 <div class="card mb-3">
                     <div class="card-block">
-                        <div class="row" style="height: 300px">
-                            <div class="col-md-4" id="all_pie_doctor_title"></div>
-                            <div class="col-md-4" id="all_pie_doctor_office"></div>
-                            <div class="col-md-4" id="all_pie_doctor_grade"></div>
+                        <div class="row">
+                            <div class="col-md-4" id="all_pie_doctor_title" style="height: 300px"></div>
+                            <div class="col-md-4" id="all_pie_doctor_office" style="height: 300px"></div>
+                            <div class="col-md-4" id="all_pie_doctor_grade" style="height: 300px"></div>
                         </div>
                     </div>
                 </div>
@@ -58,9 +58,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-3">
-{#                    <div class="card-header">#}
-{#                        <b>全年用户统计</b>#}
-{#                    </div>#}
+                    {#                    <div class="card-header">#}
+                    {#                        <b>全年用户统计</b>#}
+                    {#                    </div>#}
                     <div class="card-block">
                         <div id="all_bar_doctor_age" style="height: 500px"></div>
                     </div>
@@ -71,7 +71,10 @@
             <div class="col-12">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <input type="date" title="">
+                        <label for="select_year"><b>选择年份</b></label>
+                        <select id="select_year" class="custom-select">
+                            <option>2017年</option>
+                        </select>
                     </div>
                     <div class="card-block">
                         <div id="year_bar_doctor_all_count" style="height: 500px"></div>
@@ -82,9 +85,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-3">
-{#                    <div class="card-header">#}
-{#                        <input type="date" title="">#}
-{#                    </div>#}
+                    {#                    <div class="card-header">#}
+                    {#                        <input type="date" title="">#}
+                    {#                    </div>#}
                     <div class="card-block">
                         <div id="month_line_doctor_all_count" style="height: 500px"></div>
                     </div>
@@ -94,14 +97,14 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-3">
-{#                    <div class="card-header">#}
-{#                        <b>全年用户统计</b>#}
-{#                    </div>#}
+                    {#                    <div class="card-header">#}
+                    {#                        <b>全年用户统计</b>#}
+                    {#                    </div>#}
                     <div class="card-block">
-                        <div class="row" style="height: 300px">
-                            <div class="col-md-4" id="month_gauge_doctor_1"></div>
-                            <div class="col-md-4" id="month_gauge_doctor_2"></div>
-                            <div class="col-md-4" id="month_gauge_doctor_3"></div>
+                        <div class="row">
+                            <div class="col-md-4" id="month_gauge_doctor_1" style="height: 300px"></div>
+                            <div class="col-md-4" id="month_gauge_doctor_2" style="height: 300px"></div>
+                            <div class="col-md-4" id="month_gauge_doctor_3" style="height: 300px"></div>
                         </div>
                     </div>
                 </div>
