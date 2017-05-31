@@ -42,3 +42,10 @@ class DoctorTitle(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column('title', db.String(30), nullable=False)
     title_description = db.Column('title_description', db.String(30), nullable=False)
+
+
+class Hospital(db.Model):
+    __tablename__ = 'hospital'
+    id = db.Column(db.Integer(), primary_key=True)
+    region_id = db.Column(db.Integer(), db.ForeignKey('region.id'))
+    hospital_level_id = db.Column(db.Integer(), db.ForeignKey('hospital_level.id'))

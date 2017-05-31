@@ -12,6 +12,7 @@ class Doctor(db.Model):
     region_id = db.Column(db.Integer(), db.ForeignKey('region.id'))
     age_group_id = db.Column(db.Integer(), db.ForeignKey('age_group.id'))
     doctor_title_id = db.Column(db.Integer(), db.ForeignKey('doctor_title.id'))
+    hospital_id = db.Column(db.Integer(), db.ForeignKey('hospital.id'))
     hospital_level_id = db.Column(db.Integer(), db.ForeignKey('hospital_level.id'))
     hospital_office_id = db.Column(db.Integer(), db.ForeignKey('hospital_office.id'))
 
