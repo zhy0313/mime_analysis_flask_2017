@@ -33,4 +33,8 @@ class AuthenticatedDoctor(db.Model):
     ppqc_number = db.Column('pqc_number', db.String(30), nullable=False)
 
 
-
+class DoctorDisease(db.Model):
+    __tablename__ = 'doctor_disease'
+    id = db.Column(db.Integer(), primary_key=True)
+    doctor_id = db.Column(db.Integer(), db.ForeignKey('doctor.id'))
+    disease_id = db.Column(db.Integer(), db.ForeignKey('disease.id'))

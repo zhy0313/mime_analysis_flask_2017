@@ -14,6 +14,7 @@ from .commons import HospitalOffice
 from .commons import DoctorTitle
 from .doctors import Doctor
 from .doctors import AuthenticatedDoctor
+from .doctors import DoctorDisease
 from .time_statistics import TimeCount
 from .region_statistics import RegionCount
 
