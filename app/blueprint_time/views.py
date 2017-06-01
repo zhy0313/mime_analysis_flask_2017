@@ -14,7 +14,7 @@ from ..models import AgeGroup
 from ..models import AuthenticatedDoctor
 from sqlalchemy import func
 from ..models import db
-
+import datetime
 
 @blueprint_time.route('/')
 @blueprint_time.route('/index/')
@@ -111,6 +111,10 @@ def age_groups():
 @blueprint_time.route('/months/<int:year>', methods=['GET', 'POST'])
 # @login_required
 def months(year):
+    now = datetime.datetime.now()
+    now_year = now.year
+    if year is None:
+        year = now_year
     months_ret = []
     ret = db.session.query(TimeCount.month, func.sum(TimeCount.register_count), func.sum(TimeCount.authorize_count),
                            func.sum(TimeCount.trade_count)).filter(TimeCount.year == year).group_by(
@@ -125,6 +129,13 @@ def months(year):
 @blueprint_time.route('/days/<int:year>/<int:month>', methods=['GET', 'POST'])
 # @login_required
 def days(year, month):
+    now = datetime.datetime.now()
+    now_year = now.year
+    if year is None:
+        year = now_year
+    now_month = now.month
+    if month is None:
+        month = now_month
     days_ret = []
     ret = db.session.query(TimeCount.day, func.sum(TimeCount.register_count), func.sum(TimeCount.authorize_count),
                            func.sum(TimeCount.trade_count)).filter(TimeCount.year == year,
@@ -140,6 +151,13 @@ def days(year, month):
 @blueprint_time.route('/rates/<int:year>/<int:month>', methods=['GET', 'POST'])
 #@login_required
 def rates(year, month):
+    now = datetime.datetime.now()
+    now_year = now.year
+    if year is None:
+        year = now_year
+    now_month = now.month
+    if month is None:
+        month = now_month
     year_ret = db.session.query(func.sum(TimeCount.register_count), func.sum(TimeCount.authorize_count),
                                 func.sum(TimeCount.trade_count)).filter(TimeCount.year == year).first()
     year_register_count = year_ret[0]
