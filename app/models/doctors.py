@@ -15,8 +15,6 @@ class Doctor(db.Model):
     hospital_id = db.Column(db.Integer(), db.ForeignKey('hospital.id'))
     hospital_level_id = db.Column(db.Integer(), db.ForeignKey('hospital_level.id'))
     hospital_office_id = db.Column(db.Integer(), db.ForeignKey('hospital_office.id'))
-    disease_id = db.Column(db.Integer(), db.ForeignKey('disease.id'))
-
     register_year = db.Column('register_year', db.String(30), nullable=True)
     register_month = db.Column('register_month', db.String(30), nullable=True)
     register_day = db.Column('register_day', db.String(30), nullable=True)
