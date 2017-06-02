@@ -1,22 +1,28 @@
 var chart_name = 'all_bar_doctor_age';
-var chart_all_bar_doctor_age;
-chart_all_bar_doctor_age = new Vue({
+new Vue({
     el: chart_name,
     data: {
         title: chart_name,
-        get_url: '',
+        get_url: '/time/age_groups/',
         get_data: ''
     },
     methods: {
         refresh: function (e) {
             var vm = this;
             $.get(vm.get_url, {}, function (data) {
-                vm.get_data = data;
+                vm.get_data = JSON.parse(data);
                 vm.chart();
             });
         },
         chart: function () {
+            var data = this.get_data;
+            var data_category = [];
+            data = data.map(function (val) {
+                data_category.push(val.age_group);
+                return val.count
+            });
             var option = {
+                color: window.global.color,
                 title: {
                     text: '年龄段'
                 },
@@ -26,9 +32,9 @@ chart_all_bar_doctor_age = new Vue({
                         type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
                     }
                 },
-                legend: {
-                    data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎', '百度', '谷歌', '必应', '其他']
-                },
+                // legend: {
+                //     data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎', '百度', '谷歌', '必应', '其他']
+                // },
                 grid: {
                     left: '3%',
                     right: '4%',
@@ -38,7 +44,7 @@ chart_all_bar_doctor_age = new Vue({
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                        data: data_category
                     }
                 ],
                 yAxis: [
@@ -46,71 +52,11 @@ chart_all_bar_doctor_age = new Vue({
                         type: 'value'
                     }
                 ],
-                series: [
-                    {
-                        name: '直接访问',
-                        type: 'bar',
-                        data: [320, 332, 301, 334, 390, 330, 320]
-                    },
-                    {
-                        name: '邮件营销',
-                        type: 'bar',
-                        stack: '广告',
-                        data: [120, 132, 101, 134, 90, 230, 210]
-                    },
-                    {
-                        name: '联盟广告',
-                        type: 'bar',
-                        stack: '广告',
-                        data: [220, 182, 191, 234, 290, 330, 310]
-                    },
-                    {
-                        name: '视频广告',
-                        type: 'bar',
-                        stack: '广告',
-                        data: [150, 232, 201, 154, 190, 330, 410]
-                    },
-                    {
-                        name: '搜索引擎',
-                        type: 'bar',
-                        data: [862, 1018, 964, 1026, 1679, 1600, 1570],
-                        markLine: {
-                            lineStyle: {
-                                normal: {
-                                    type: 'dashed'
-                                }
-                            },
-                            data: [
-                                [{type: 'min'}, {type: 'max'}]
-                            ]
-                        }
-                    },
-                    {
-                        name: '百度',
-                        type: 'bar',
-                        barWidth: 5,
-                        stack: '搜索引擎',
-                        data: [620, 732, 701, 734, 1090, 1130, 1120]
-                    },
-                    {
-                        name: '谷歌',
-                        type: 'bar',
-                        stack: '搜索引擎',
-                        data: [120, 132, 101, 134, 290, 230, 220]
-                    },
-                    {
-                        name: '必应',
-                        type: 'bar',
-                        stack: '搜索引擎',
-                        data: [60, 72, 71, 74, 190, 130, 110]
-                    },
-                    {
-                        name: '其他',
-                        type: 'bar',
-                        stack: '搜索引擎',
-                        data: [62, 82, 91, 84, 109, 110, 120]
-                    }
-                ]
+                series: [{
+                    name: '人数',
+                    type: 'bar',
+                    data: data
+                }]
             };
 
 

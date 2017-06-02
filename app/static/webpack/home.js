@@ -10,7 +10,4 @@ require('./charts/year_bar_doctor_all_count.js');
 
 require('./charts/month_line_doctor_all_count.js');
 
-require('./charts/month_gauge_doctor_1.js');
-require('./charts/month_gauge_doctor_2.js');
-require('./charts/month_gauge_doctor_3.js');
 

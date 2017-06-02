@@ -1,24 +1,39 @@
 var chart_name = 'month_line_doctor_all_count';
-var chart_month_line_doctor_all_count;
-chart_month_line_doctor_all_count = new Vue({
+new Vue({
     el: chart_name,
     data: {
         title: chart_name,
-        get_url: '',
+        get_url: '/days/',
         get_data: ''
     },
     methods: {
         refresh: function (e) {
             var vm = this;
-            $.get(vm.get_url, {}, function (data) {
-                vm.get_data = data;
+            var select_year = $('#select_year2').val();
+            var select_month = $('#select_month2').val();
+            $.get(vm.get_url + select_year + '/' + select_month, {}, function (data) {
+                vm.get_data = JSON.parse(data);
                 vm.chart();
             });
         },
         chart: function () {
+            var data = this.get_data;
+            var day = [],
+                register_count = [],
+                authorize_count = [],
+                trade_count = [];
+            data.sort(function (a, b) {
+                return a > b;
+            }).map(function (val) {
+                day.push(val.day + '日');
+                register_count.push(val.register_count);
+                authorize_count.push(val.authorize_count);
+                trade_count.push(val.trade_count);
+            });
             var option = {
+                color: window.global.color,
                 title: {
-                    text: '堆叠区域图'
+                    text: '月份统计'
                 },
                 tooltip: {
                     trigger: 'axis',

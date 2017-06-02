@@ -1,25 +1,31 @@
 var chart_name = 'all_pie_doctor_grade';
-var chart_all_pie_doctor_grade;
-chart_all_pie_doctor_grade = new Vue({
+new Vue({
     el: chart_name,
     data: {
         title: chart_name,
-        get_url: '',
+        get_url: '/time/hospital_levels/',
         get_data: ''
     },
     methods: {
         refresh: function (e) {
             var vm = this;
             $.get(vm.get_url, {}, function (data) {
-                vm.get_data = data;
+                vm.get_data = JSON.parse(data);
                 vm.chart();
             });
         },
         chart: function () {
+            var data = this.get_data;
+            data = data.map(function (val) {
+                return {
+                    name: val.hospital_level,
+                    value: val.count
+                }
+            });
             var option = {
+                color: window.global.color,
                 title: {
-                    text: '某站点用户访问来源',
-                    subtext: '纯属虚构',
+                    text: '医院级别统计',
                     x: 'center'
                 },
                 tooltip: {
@@ -37,13 +43,7 @@ chart_all_pie_doctor_grade = new Vue({
                         type: 'pie',
                         radius: '55%',
                         center: ['50%', '60%'],
-                        data: [
-                            {value: 335, name: '直接访问'},
-                            {value: 310, name: '邮件营销'},
-                            {value: 234, name: '联盟广告'},
-                            {value: 135, name: '视频广告'},
-                            {value: 1548, name: '搜索引擎'}
-                        ],
+                        data: data,
                         itemStyle: {
                             emphasis: {
                                 shadowBlur: 10,

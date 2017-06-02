@@ -1,32 +1,31 @@
 var chart_name = 'all_heatmap_doctor_gis';
-var chart_all_heatmap_doctor_gis;
-chart_all_heatmap_doctor_gis = new Vue({
+new Vue({
     el: chart_name,
     data: {
         title: chart_name,
-        get_url: '/regions/',
+        get_url: '/time/regions/',
         get_data: ''
     },
     methods: {
         refresh: function (e) {
             var vm = this;
             $.get(vm.get_url, {}, function (data) {
-                console.log(data);
-                vm.get_data = data;
+                vm.get_data = JSON.parse(data);
                 vm.chart();
             });
         },
         chart: function () {
             var data = this.get_data;
+            var max = 0;
             data = data.map(function (val) {
-                return []
+                max = max>val.register_count?max:val.register_count;
+                return [val.longitude, val.latitude, val.register_count]
             });
+            max = Math.ceil(max/10)*10;
 
             var option = {
                 title: {
-                    text: '全国主要城市空气质量',
-                    subtext: 'data from PM25.in',
-                    sublink: 'http://www.pm25.in',
+                    text: '全国用户分布热力图',
                     left: 'center',
                     textStyle: {
                         color: '#fff'
@@ -35,7 +34,7 @@ chart_all_heatmap_doctor_gis = new Vue({
                 backgroundColor: '#404a59',
                 visualMap: {
                     min: 0,
-                    max: 500,
+                    max: max,
                     splitNumber: 5,
                     inRange: {
                         color: ['#d94e5d', '#eac736', '#50a3ba'].reverse()

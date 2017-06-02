@@ -8,27 +8,21 @@
             <div class="col-md-4">
                 <div class="card mb-3 card-inverse bg-inverse">
                     <div class="card-block p-3">
-                        <div class="card-title h3">123123</div>
-                        <div class="card-text">访问总量</div>
-                    </div>
-                </div>
-
-                <div class="card mb-3 card-inverse bg-inverse">
-                    <div class="card-block p-3">
-                        <div class="card-title h3">12313</div>
+                        <div class="card-title h3">{{ statistic_info.register_count }}</div>
                         <div class="card-text">注册总量</div>
                     </div>
                 </div>
 
                 <div class="card mb-3 card-inverse bg-inverse">
                     <div class="card-block p-3">
-                        <div class="card-title h3">123123</div>
+                        <div class="card-title h3">{{ statistic_info.authorize_count }}</div>
                         <div class="card-text">认证总量</div>
                     </div>
                 </div>
+
                 <div class="card mb-3 card-inverse bg-inverse">
                     <div class="card-block p-3">
-                        <div class="card-title h3">123123</div>
+                        <div class="card-title h3">{{ statistic_info.trade_count }}</div>
                         <div class="card-text">订单总量</div>
                     </div>
                 </div>
@@ -73,13 +67,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-3">
-                    <div class="card-header">
+                    <div class="card-block">
                         <label for="select_year"><b>选择年份</b></label>
                         <select id="select_year" class="custom-select">
-                            <option>2017年</option>
+                            <option value="2017">2017年</option>
                         </select>
-                    </div>
-                    <div class="card-block">
+                        <hr>
                         <div id="year_bar_doctor_all_count" style="height: 500px"></div>
                     </div>
                 </div>
@@ -92,23 +85,27 @@
                     {#                        <input type="date" title="">#}
                     {#                    </div>#}
                     <div class="card-block">
+                        <label for="select_year2"><b>选择年月</b></label>
+                        <select id="select_year2" class="custom-select">
+                            <option value="2017">2017年</option>
+                        </select>
+                        <label for="select_month2"></label>
+                        <select id="select_month2" class="custom-select">
+                            <option value="1">1月</option>
+                            <option value="2">2月</option>
+                            <option value="3">3月</option>
+                            <option value="4">4月</option>
+                            <option value="5">5月</option>
+                            <option value="6">6月</option>
+                            <option value="7">7月</option>
+                            <option value="8">8月</option>
+                            <option value="9">9月</option>
+                            <option value="10">10月</option>
+                            <option value="11">11月</option>
+                            <option value="12">12月</option>
+                        </select>
+                        <hr>
                         <div id="month_line_doctor_all_count" style="height: 500px"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card mb-3">
-                    {#                    <div class="card-header">#}
-                    {#                        <b>全年用户统计</b>#}
-                    {#                    </div>#}
-                    <div class="card-block">
-                        <div class="row">
-                            <div class="col-md-4" id="month_gauge_doctor_1" style="height: 300px"></div>
-                            <div class="col-md-4" id="month_gauge_doctor_2" style="height: 300px"></div>
-                            <div class="col-md-4" id="month_gauge_doctor_3" style="height: 300px"></div>
-                        </div>
                     </div>
                 </div>
             </div>
