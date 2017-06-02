@@ -27,9 +27,9 @@
                     <li class="nav-item"><a class="nav-link" href="">医者风采</a></li>
                 </ul>
                 <ul class="navbar-nav">
-                    {% if user %}
+                    {% if current_user.is_authenticated %}
                     <li class="dropdown nav-item">
-                        <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.name }}<span class="caret"></span></a>
+                        <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown">{{ current_user.phone }}<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a class="nav-link" href="/logout">logout</a></li>
                         </ul>

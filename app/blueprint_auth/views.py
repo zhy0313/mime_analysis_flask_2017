@@ -29,6 +29,7 @@ def login():
 @blueprint_auth.route('/logout', methods=['GET', 'POST'])
 def logout():
     logout_user()
+    return redirect(url_for('blueprint_auth.login'))
 
 
 @blueprint_auth.route('/register', methods=['GET', 'POST'])
