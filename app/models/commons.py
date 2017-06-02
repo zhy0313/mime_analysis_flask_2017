@@ -21,6 +21,7 @@ class AgeGroup(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     range = db.Column('range', db.String(30), nullable=False)
     range_description = db.Column('range_description', db.String(30), nullable=False)
+    age_index = db.Column('age_index', db.Integer(), nullable=False)
 
 
 class HospitalLevel(db.Model):

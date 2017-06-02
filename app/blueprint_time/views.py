@@ -93,11 +93,11 @@ def hospital_levels():
 # @login_required
 def age_groups():
     age_groups_ret = []
-    ret = db.session.query(Doctor.age_group_id, AgeGroup.range,
+    ret = db.session.query(Doctor.age_group_id, AgeGroup.range,AgeGroup.age_index,
                            func.count(Doctor.id)).group_by(Doctor.age_group_id).join(AgeGroup,
                                                                                      Doctor.age_group_id == AgeGroup.id).all()
     for r in ret:
-        json_ret = {'age_group': r[1], 'count': str(r[2])}
+        json_ret = {'age_group': r[1], 'age_index': str(r[2]), 'count': str(r[3])}
         age_groups_ret.append(json_ret)
     # print(json.dumps(age_groups_ret))
     return json.dumps(age_groups_ret)
