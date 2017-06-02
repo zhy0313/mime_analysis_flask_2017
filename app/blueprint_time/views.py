@@ -43,63 +43,63 @@ def regions():
         json_ret = {'province': r[1], 'city': r[2], 'register_count': str(r[3]), 'authorize_count': str(r[4]),
                     'trade_count': str(r[5]), 'longitude': str(r[6]), 'latitude': str(r[7])}
         regions_ret.append(json_ret)
-    #print(json.dumps(regions_ret))
+    # print(json.dumps(regions_ret))
     return json.dumps(regions_ret)
 
 
 @blueprint_time.route('/titles/', methods=['GET', 'POST'])
-#@login_required
+# @login_required
 def titles():
     titles_ret = []
     ret = db.session.query(Doctor.doctor_title_id, DoctorTitle.title,
                            func.count(Doctor.id)).group_by(Doctor.doctor_title_id).join(DoctorTitle,
-                                     Doctor.doctor_title_id == DoctorTitle.id).all()
+                                                                                        Doctor.doctor_title_id == DoctorTitle.id).all()
     for r in ret:
         json_ret = {'doctor_title': r[1], 'count': str(r[2])}
         titles_ret.append(json_ret)
-    #print(json.dumps(titles_ret))
+    # print(json.dumps(titles_ret))
     return json.dumps(titles_ret)
 
 
 @blueprint_time.route('/offices/', methods=['GET', 'POST'])
-#@login_required
+# @login_required
 def offices():
     offices_ret = []
     ret = db.session.query(Doctor.hospital_office_id, HospitalOffice.office,
                            func.count(Doctor.id)).group_by(Doctor.hospital_office_id).join(HospitalOffice,
-                                     Doctor.hospital_office_id == HospitalOffice.id).all()
+                                                                                           Doctor.hospital_office_id == HospitalOffice.id).all()
     for r in ret:
         json_ret = {'doctor_office': r[1], 'count': str(r[2])}
         offices_ret.append(json_ret)
-    #print(json.dumps(offices_ret))
+    # print(json.dumps(offices_ret))
     return json.dumps(offices_ret)
 
 
 @blueprint_time.route('/hospital_levels/', methods=['GET', 'POST'])
-#@login_required
+# @login_required
 def hospital_levels():
     hospital_levels_ret = []
     ret = db.session.query(Doctor.hospital_level_id, HospitalLevel.level,
                            func.count(Doctor.id)).group_by(Doctor.hospital_level_id).join(HospitalLevel,
-                                     Doctor.hospital_level_id == HospitalLevel.id).all()
+                                                                                          Doctor.hospital_level_id == HospitalLevel.id).all()
     for r in ret:
         json_ret = {'hospital_level': r[1], 'count': str(r[2])}
         hospital_levels_ret.append(json_ret)
-    #print(json.dumps(hospital_levels_ret))
+    # print(json.dumps(hospital_levels_ret))
     return json.dumps(hospital_levels_ret)
 
 
 @blueprint_time.route('/age_groups/', methods=['GET', 'POST'])
-#@login_required
+# @login_required
 def age_groups():
     age_groups_ret = []
     ret = db.session.query(Doctor.age_group_id, AgeGroup.range,
                            func.count(Doctor.id)).group_by(Doctor.age_group_id).join(AgeGroup,
-                                     Doctor.age_group_id == AgeGroup.id).all()
+                                                                                     Doctor.age_group_id == AgeGroup.id).all()
     for r in ret:
         json_ret = {'age_group': r[1], 'count': str(r[2])}
         age_groups_ret.append(json_ret)
-    #print(json.dumps(age_groups_ret))
+    # print(json.dumps(age_groups_ret))
     return json.dumps(age_groups_ret)
 
 
@@ -113,7 +113,7 @@ def months(year=datetime.datetime.now().year):
     for r in ret:
         json_ret = {'month': r[0], 'register_count': str(r[1]), 'authorize_count': str(r[2]), 'trade_count': str(r[3])}
         months_ret.append(json_ret)
-    #print(json.dumps(months_ret))
+    # print(json.dumps(months_ret))
     return json.dumps(months_ret)
 
 
@@ -128,12 +128,12 @@ def days(year=datetime.datetime.now().year, month=datetime.datetime.now().month)
     for r in ret:
         json_ret = {'day': r[0], 'register_count': str(r[1]), 'authorize_count': str(r[2]), 'trade_count': str(r[3])}
         days_ret.append(json_ret)
-    #print(json.dumps(days_ret))
+    # print(json.dumps(days_ret))
     return json.dumps(days_ret)
 
 
 @blueprint_time.route('/rates/<int:year>/<int:month>', methods=['GET', 'POST'])
-#@login_required
+# @login_required
 def rates(year=datetime.datetime.now().year, month=datetime.datetime.now().month):
     year_ret = db.session.query(func.sum(TimeCount.register_count), func.sum(TimeCount.authorize_count),
                                 func.sum(TimeCount.trade_count)).filter(TimeCount.year == year).first()
