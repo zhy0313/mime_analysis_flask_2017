@@ -3,7 +3,7 @@ new Vue({
     el: chart_name,
     data: {
         title: chart_name,
-        get_url: '/days/',
+        get_url: '/time/days/',
         get_data: ''
     },
     methods: {
@@ -45,7 +45,7 @@ new Vue({
                     }
                 },
                 legend: {
-                    data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+                    data: ['register_count', 'authorize_count', 'trade_count']
                 },
                 toolbox: {
                     feature: {
@@ -62,7 +62,7 @@ new Vue({
                     {
                         type: 'category',
                         boundaryGap: false,
-                        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                        data: day
                     }
                 ],
                 yAxis: [
@@ -72,45 +72,25 @@ new Vue({
                 ],
                 series: [
                     {
-                        name: '邮件营销',
+                        name: 'register_count',
                         type: 'line',
                         stack: '总量',
                         areaStyle: {normal: {}},
-                        data: [120, 132, 101, 134, 90, 230, 210]
+                        data: register_count
                     },
                     {
-                        name: '联盟广告',
+                        name: 'authorize_count',
                         type: 'line',
                         stack: '总量',
                         areaStyle: {normal: {}},
-                        data: [220, 182, 191, 234, 290, 330, 310]
+                        data: authorize_count
                     },
                     {
-                        name: '视频广告',
+                        name: 'trade_count',
                         type: 'line',
                         stack: '总量',
                         areaStyle: {normal: {}},
-                        data: [150, 232, 201, 154, 190, 330, 410]
-                    },
-                    {
-                        name: '直接访问',
-                        type: 'line',
-                        stack: '总量',
-                        areaStyle: {normal: {}},
-                        data: [320, 332, 301, 334, 390, 330, 320]
-                    },
-                    {
-                        name: '搜索引擎',
-                        type: 'line',
-                        stack: '总量',
-                        label: {
-                            normal: {
-                                show: true,
-                                position: 'top'
-                            }
-                        },
-                        areaStyle: {normal: {}},
-                        data: [820, 932, 901, 934, 1290, 1330, 1320]
+                        data: trade_count
                     }
                 ]
             };
