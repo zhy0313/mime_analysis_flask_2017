@@ -16,6 +16,7 @@ from sqlalchemy import func
 from ..models import db
 import datetime
 
+
 @blueprint_time.route('/')
 @blueprint_time.route('/index/')
 # @login_required
@@ -26,7 +27,6 @@ def index():
     authorize_count = ret[1]
     trade_count = ret[2]
     index_ret = {'register_count': register_count, 'authorize_count': authorize_count, 'trade_count': trade_count}
-    #print(index_ret)
     return render_template('home.html', statistic_info=index_ret)
 
 
@@ -43,7 +43,6 @@ def regions():
         json_ret = {'province': r[1], 'city': r[2], 'register_count': str(r[3]), 'authorize_count': str(r[4]),
                     'trade_count': str(r[5]), 'longitude': str(r[6]), 'latitude': str(r[7])}
         regions_ret.append(json_ret)
-    #print(regions_ret)
     #print(json.dumps(regions_ret))
     return json.dumps(regions_ret)
 
@@ -58,7 +57,6 @@ def titles():
     for r in ret:
         json_ret = {'doctor_title': r[1], 'count': str(r[2])}
         titles_ret.append(json_ret)
-    #print(titles_ret)
     #print(json.dumps(titles_ret))
     return json.dumps(titles_ret)
 
@@ -73,7 +71,6 @@ def offices():
     for r in ret:
         json_ret = {'doctor_office': r[1], 'count': str(r[2])}
         offices_ret.append(json_ret)
-    #print(offices_ret)
     #print(json.dumps(offices_ret))
     return json.dumps(offices_ret)
 
@@ -88,7 +85,6 @@ def hospital_levels():
     for r in ret:
         json_ret = {'hospital_level': r[1], 'count': str(r[2])}
         hospital_levels_ret.append(json_ret)
-    #print(hospital_levels_ret)
     #print(json.dumps(hospital_levels_ret))
     return json.dumps(hospital_levels_ret)
 
@@ -103,18 +99,13 @@ def age_groups():
     for r in ret:
         json_ret = {'age_group': r[1], 'count': str(r[2])}
         age_groups_ret.append(json_ret)
-    #print(age_groups_ret)
     #print(json.dumps(age_groups_ret))
     return json.dumps(age_groups_ret)
 
 
 @blueprint_time.route('/months/<int:year>', methods=['GET', 'POST'])
 # @login_required
-def months(year):
-    now = datetime.datetime.now()
-    now_year = now.year
-    if year is None:
-        year = now_year
+def months(year=datetime.datetime.now().year):
     months_ret = []
     ret = db.session.query(TimeCount.month, func.sum(TimeCount.register_count), func.sum(TimeCount.authorize_count),
                            func.sum(TimeCount.trade_count)).filter(TimeCount.year == year).group_by(
@@ -128,14 +119,7 @@ def months(year):
 
 @blueprint_time.route('/days/<int:year>/<int:month>', methods=['GET', 'POST'])
 # @login_required
-def days(year, month):
-    now = datetime.datetime.now()
-    now_year = now.year
-    if year is None:
-        year = now_year
-    now_month = now.month
-    if month is None:
-        month = now_month
+def days(year=datetime.datetime.now().year, month=datetime.datetime.now().month):
     days_ret = []
     ret = db.session.query(TimeCount.day, func.sum(TimeCount.register_count), func.sum(TimeCount.authorize_count),
                            func.sum(TimeCount.trade_count)).filter(TimeCount.year == year,
@@ -150,14 +134,7 @@ def days(year, month):
 
 @blueprint_time.route('/rates/<int:year>/<int:month>', methods=['GET', 'POST'])
 #@login_required
-def rates(year, month):
-    now = datetime.datetime.now()
-    now_year = now.year
-    if year is None:
-        year = now_year
-    now_month = now.month
-    if month is None:
-        month = now_month
+def rates(year=datetime.datetime.now().year, month=datetime.datetime.now().month):
     year_ret = db.session.query(func.sum(TimeCount.register_count), func.sum(TimeCount.authorize_count),
                                 func.sum(TimeCount.trade_count)).filter(TimeCount.year == year).first()
     year_register_count = year_ret[0]
