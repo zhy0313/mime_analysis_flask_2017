@@ -7,6 +7,7 @@ db = SQLAlchemy()
 from .users import User
 from .commons import Disease
 from .commons import Region
+from .commons import Province
 from .commons import AgeGroup
 from .commons import Hospital
 from .commons import HospitalLevel

@@ -14,6 +14,13 @@ class Region(db.Model):
     city = db.Column('city', db.String(30), nullable=False)
     longitude = db.Column('longitude', db.Numeric(12, 6), nullable=True)
     latitude = db.Column('latitude', db.Numeric(12, 6), nullable=True)
+    province_id = db.Column(db.Integer(), db.ForeignKey('province.id'))
+
+
+class Province(db.Model):
+    __tablename__ = 'province'
+    id = db.Column(db.Integer(), primary_key=True)
+    province = db.Column('province', db.String(30), nullable=False)
 
 
 class AgeGroup(db.Model):

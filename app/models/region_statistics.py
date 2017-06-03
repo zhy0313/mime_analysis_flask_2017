@@ -13,4 +13,6 @@ class RegionCount(db.Model):
     register_count = db.Column('register_count', db.Integer(), nullable=False)
     authorize_count = db.Column('authorize_count', db.Integer(), nullable=False)
     trade_count = db.Column('trade_count', db.Integer(), nullable=False)
+    video_count = db.Column('video_count', db.Integer(), nullable=False)
+    group_count = db.Column('group_count', db.Integer(), nullable=False)
 
