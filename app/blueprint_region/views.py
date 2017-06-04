@@ -87,15 +87,12 @@ def hospital_levels(province='湖北'):
 # @login_required
 def diseases(province='湖北'):
     diseases_set = []
-    ret = db.session.query(DoctorDisease.disease_id, HospitalLevel.id, Disease.name_ch, HospitalLevel.level,
+    ret = db.session.query(DoctorDisease.disease_id, Doctor.hospital_level_id, Disease.name_ch, HospitalLevel.level,
                            func.count(DoctorDisease.doctor_id)).filter(Region.province == province,
-                                                                       Doctor.region_id == Region.id, DoctorDisease.doctor_id==Doctor.id).group_by(
-        DoctorDisease.disease_id, Doctor.hospital_level_id).join(Disease,
-                                                                 DoctorDisease.disease_id == Disease.id).join(
-        HospitalLevel,
-        Doctor.hospital_level_id == HospitalLevel.id).all()
+                                                                       Doctor.region_id == Region.id, DoctorDisease.doctor_id==Doctor.id, Doctor.hospital_level_id == HospitalLevel.id).group_by(
+        DoctorDisease.disease_id, Doctor.hospital_level_id).join(Disease, DoctorDisease.disease_id == Disease.id).all()
     for r in ret:
-        json_ret = {'hospital_level': str(r[1]), 'count': str(r[2])}
+        json_ret = {'hospital_level': str(r[3]),'disease':str(r[2]), 'count': str(r[4])}
         diseases_set.append(json_ret)
     print(json.dumps(diseases_set))
     return json.dumps(diseases_set)
