@@ -26,8 +26,7 @@ $(document).ready(function () {
     $(".pinned").pin({
         containerSelector: '.pinned-container',
         padding: {
-            top: 60
-        },
-        minWidth: 768
+            top: 70
+        }
     });
 });

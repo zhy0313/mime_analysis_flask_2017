@@ -11,7 +11,7 @@ new Vue({
     },
     watch: {
         select_province: function () {
-            window.global.select_province = this.select_province;
+            bus.$emit('select_province',this.select_province);
             this.refresh();
         }
     },
@@ -36,10 +36,10 @@ new Vue({
                     selectedMode: 'single',
                     label: {
                         normal: {
-                            show: true
+                            show: false
                         },
                         emphasis: {
-                            show: true
+                            show: false
                         }
                     },
                     itemStyle: {
