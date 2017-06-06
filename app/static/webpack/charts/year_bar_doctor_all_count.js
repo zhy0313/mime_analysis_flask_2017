@@ -1,16 +1,21 @@
 var chart_name = 'year_bar_doctor_all_count';
 new Vue({
-    el: chart_name,
+    el: '#'+chart_name+'_block',
     data: {
         title: chart_name,
         get_url: '/time/months/',
-        get_data: ''
+        get_data: '',
+        select_year: window.global.now_year
+    },
+    watch: {
+        select_year: function () {
+            this.refresh()
+        }
     },
     methods: {
-        refresh: function (e) {
+        refresh: function () {
             var vm = this;
-            var select = $(select_year).val();
-            $.get(vm.get_url+select, {}, function (data) {
+            $.get(vm.get_url+vm.select_year, {}, function (data) {
                 vm.get_data = JSON.parse(data);
                 vm.chart();
             });

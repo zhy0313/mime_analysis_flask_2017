@@ -1,17 +1,25 @@
 var chart_name = 'month_line_doctor_all_count';
 new Vue({
-    el: chart_name,
+    el: '#'+chart_name+'_block',
     data: {
         title: chart_name,
         get_url: '/time/days/',
-        get_data: ''
+        get_data: '',
+        select_year: window.global.now_year,
+        select_month: window.global.now_month
+    },
+    watch: {
+        select_year: function () {
+            this.refresh();
+        },
+        select_month: function () {
+            this.refresh();
+        },
     },
     methods: {
         refresh: function (e) {
             var vm = this;
-            var select_year = $('#select_year2').val();
-            var select_month = $('#select_month2').val();
-            $.get(vm.get_url + select_year + '/' + select_month, {}, function (data) {
+            $.get(vm.get_url + vm.select_year + '/' + vm.select_month, {}, function (data) {
                 vm.get_data = JSON.parse(data);
                 vm.chart();
             });

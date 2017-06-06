@@ -1,6 +1,6 @@
 var chart_name = 'all_heatmap_doctor_gis';
 new Vue({
-    el: chart_name,
+    el: '#' + chart_name,
     data: {
         title: chart_name,
         get_url: '/time/regions/',
@@ -62,7 +62,6 @@ new Vue({
                     }
                 },
                 series: [{
-                    name: 'AQI',
                     type: 'heatmap',
                     coordinateSystem: 'geo',
                     data: data

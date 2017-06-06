@@ -67,10 +67,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-3">
-                    <div class="card-block">
-                        <label for="select_year"><b>选择年份</b></label>
-                        <select id="select_year" class="custom-select">
+                    <div class="card-block" id="year_bar_doctor_all_count_block">
+                        <label for="select_year1"><b>选择年份</b></label>
+                        <select id="select_year1" class="custom-select" v-model="select_year">
                             <option value="2017">2017年</option>
+                            <option value="2018">2018年</option>
                         </select>
                         <hr>
                         <div id="year_bar_doctor_all_count" style="height: 500px"></div>
@@ -84,13 +85,13 @@
                     {#                    <div class="card-header">#}
                     {#                        <input type="date" title="">#}
                     {#                    </div>#}
-                    <div class="card-block">
+                    <div class="card-block" id="month_line_doctor_all_count_block">
                         <label for="select_year2"><b>选择年月</b></label>
-                        <select id="select_year2" class="custom-select">
+                        <select id="select_year2" class="custom-select" v-model="select_year">
                             <option value="2017">2017年</option>
                         </select>
                         <label for="select_month2"></label>
-                        <select id="select_month2" class="custom-select">
+                        <select id="select_month2" class="custom-select" v-model="select_month">
                             <option value="1">1月</option>
                             <option value="2">2月</option>
                             <option value="3">3月</option>
@@ -113,5 +114,5 @@
     </div>
 {% endblock %}
 {% block js %}
-    <script src="/static/js/home.js"></script>
+    <script src="/static/js/time.js"></script>
 {% endblock %}

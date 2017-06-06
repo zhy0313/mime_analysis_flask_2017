@@ -1,6 +1,6 @@
 var chart_name = 'all_pie_doctor_office';
 new Vue({
-    el: chart_name,
+    el: '#' + chart_name,
     data: {
         title: chart_name,
         get_url: '/time/offices/',

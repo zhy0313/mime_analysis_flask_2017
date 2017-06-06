@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/home.css">
+{% endblock %}
+{% block content %}
+    <div class="container mt-4">
+        <div class="row" id="all_map_doctor_gis_block">
+            <div class="col-md-10">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <label for="select_province"><b>选择省</b></label>
+                        <select id="select_province" class="custom-select" v-model="select_province">
+                            <option v-cloak v-for="province in provinces" :value="province">[[province]]</option>
+                        </select>
+                    </div>
+                    <div class="card-block">
+
+                        <div id="all_map_doctor_gis" style="height: 600px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-3">
+                    <div class="card-block p-3">
+                        <div class="card-title h3" v-cloak>[[ get_data.register_count ]]</div>
+                        <div class="card-text">注册总量</div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-block p-3">
+                        <div class="card-title h3" v-cloak>[[ get_data.authorize_count ]]</div>
+                        <div class="card-text">认证总量</div>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-block p-3">
+                        <div class="card-title h3" v-cloak>[[ get_data.trade_count ]]</div>
+                        <div class="card-text">订单总量</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="/static/js/region.js"></script>
+{% endblock %}

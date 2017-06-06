@@ -17,8 +17,7 @@ from ..models import db
 from flask import render_template
 import datetime
 
-
-@blueprint_region.route('/index/<string:province>', methods=['GET', 'POST'])
+@blueprint_region.route('/')
 # @login_required
 def index(province='湖北'):
     regions_ret = []
@@ -31,7 +30,22 @@ def index(province='湖北'):
                  'authorize_count': str(r[4]),
                  'trade_count': str(r[5]), 'video_count': str(r[6]), 'group_count': str(r[7])}
     print(index_ret)
-    return render_template('home.html', statistic_info=index_ret)
+    return render_template('region.html', statistic_info=index_ret)
+
+@blueprint_region.route('/index/<string:province>', methods=['GET', 'POST'])
+# @login_required
+def region(province):
+    regions_ret = []
+    r = db.session.query(Region.province, Region.longitude, Region.latitude, func.sum(RegionCount.register_count),
+                         func.sum(RegionCount.authorize_count),
+                         func.sum(RegionCount.trade_count), func.sum(RegionCount.video_count),
+                         func.sum(RegionCount.group_count)).filter(Region.province == province,
+                                                                   RegionCount.region_id == Region.id).first()
+    region_ret = {'province': r[0], 'longitude': str(r[1]), 'latitude': str(r[2]), 'register_count': str(r[3]),
+                 'authorize_count': str(r[4]),
+                 'trade_count': str(r[5]), 'video_count': str(r[6]), 'group_count': str(r[7])}
+    print(region_ret)
+    return json.dumps(region_ret)
 
 
 @blueprint_region.route('/titles/<string:province>', methods=['GET', 'POST'])

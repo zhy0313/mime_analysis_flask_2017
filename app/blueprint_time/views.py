@@ -27,7 +27,7 @@ def index():
     authorize_count = ret[1]
     trade_count = ret[2]
     index_ret = {'register_count': register_count, 'authorize_count': authorize_count, 'trade_count': trade_count}
-    return render_template('home.html', statistic_info=index_ret)
+    return render_template('time.html', statistic_info=index_ret)
 
 
 @blueprint_time.route('/regions/', methods=['GET', 'POST'])

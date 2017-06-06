@@ -1,6 +1,6 @@
 var chart_name = 'all_bar_doctor_age';
 new Vue({
-    el: chart_name,
+    el: '#' + chart_name,
     data: {
         title: chart_name,
         get_url: '/time/age_groups/',
